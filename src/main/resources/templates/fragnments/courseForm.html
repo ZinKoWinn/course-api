@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<form th:fragment="courseForm" action="#" method="post" th:action="@{/courses/create}" th:object="${courses}">
+<div class="container">
+    <div class="card">
+        <h1 class="card-header text-center text-primary">Add Course</h1>
+        <div class="card-body">
+            <form role="form">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="name">Course Name</label>
+                        <input type="text" class="form-control" id="name" th:field="*{name}"
+                               th:classappend="${#fields.hasErrors('name')}? 'is-invalid'" placeholder="Enter Course Name">
+                        <div class="invalid-feedback" th:errors="*{name}"></div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="content">Content</label>
+                        <input type="text" class="form-control" id="content" th:field="*{content}"
+                               th:classappend="${#fields.hasErrors('content')}? 'is-invalid'" placeholder="Enter Content">
+                        <div class="invalid-feedback" th:errors="*{content}"></div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label for="startDate">Start Date</label>
+                        <input type="text" class="form-control" id="startDate" th:field="*{start_date}"
+                               th:classappend="${#fields.hasErrors('start_date')}? 'is-invalid'" placeholder="Enter Start Date">
+                        <div class="invalid-feedback" th:errors="*{start_date}"></div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="image">Image Url</label>
+                        <input type="text" class="form-control" id="image" th:field="*{image}"
+                               th:classappend="${#fields.hasErrors('image')}? 'is-invalid'" placeholder="Enter Image Url">
+                        <div class="invalid-feedback" th:errors="*{image}"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="duration">Duration</label>
+                        <input type="text" class="form-control" id="duration" th:field="*{duration}"
+                               th:classappend="${#fields.hasErrors('duration')}? 'is-invalid'" placeholder="Enter Duration">
+                        <div class="invalid-feedback" th:errors="*{duration}"></div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="fees">Fees</label>
+                        <input type="text" class="form-control" id="fees" th:field="*{fees}"
+                               th:classappend="${#fields.hasErrors('fees')}? 'is-invalid'" placeholder="Enter Fees">
+                        <div class="invalid-feedback" th:errors="*{fees}"></div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+
+                        <a href="#" th:href="@{/courses}" class="btn btn-outline-secondary col-md-3 mr-lg-3">Cancel</a>
+                        <button type="submit" class="btn btn-primary col-md-3 ml-lg-3"><i class="far fa-save pr-3 " aria-hidden="true"></i>Save </button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</form>
+</body>
+</html>
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div class="row">
+    <div class="card">
+        <div class="card-body">
+<table class="table table-hover table-striped" th:fragment="courseTable">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Course Name</th>
+        <th>Content</th>
+        <th>Start Date</th>
+        <th>Duration</th>
+        <th>Fees</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr th:each="course:${courses}">
+        <td th:text="${course.id}"></td>
+        <td th:text="${course.name}"></td>
+        <td th:text="${course.content}"></td>
+        <td th:text="${course.start_date}"></td>
+        <td th:text="${course.duration}"></td>
+        <td th:text="${course.fees}"></td>
+
+        <td>
+            <a href="#" th:href="@{'/courses/delete/'+ ${course.id}}" type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a>
+
+            <a href="#" th:href="@{'/courses/delete/'+ ${course.id}}" type="button" class="btn btn-outline-primary ml-lg-2"><i class="fas fa-pencil-alt"></i></a>
+        </td>
+
+    </tr>
+
+
+
+
+    </tbody>
+</table>
+        </div>
+</div>
+
+</div>
+</body>
+</html>
